@@ -5,15 +5,19 @@ import 'package:collection/collection.dart';
 import '../models/training_program.dart';
 import '../utils/json_utils.dart';
 
+/// A parser for converting JSON data into [WorkoutProgram] objects.
 class TrainingProgramParser {
+  /// Creates a new training program parser.
   const TrainingProgramParser();
 
+  /// Parses a workout program from a JSON string.
   WorkoutProgram parseFromJsonString(String source) {
     final normalized = stripJsonComments(source);
     final decoded = jsonDecode(normalized) as Map<String, dynamic>;
     return parseFromMap(decoded);
   }
 
+  /// Parses a workout program from a map.
   WorkoutProgram parseFromMap(Map<String, dynamic> map) {
     final base = WorkoutProgram.fromJson(_normalizeProgramMap(map));
 

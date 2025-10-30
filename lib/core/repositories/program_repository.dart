@@ -10,7 +10,9 @@ import '../models/training_program.dart';
 import '../services/training_program_parser.dart';
 import '../storage/hive_boxes.dart';
 
+/// A repository for managing workout programs.
 class ProgramRepository {
+  /// Creates a new program repository.
   ProgramRepository({TrainingProgramParser? parser})
     : _parser = parser ?? const TrainingProgramParser(),
       _programBox = Hive.box<String>(HiveBoxes.programs),
@@ -27,6 +29,7 @@ class ProgramRepository {
     'assets/schede/scheda_D.json',
   ];
 
+  /// Ensures that the initial programs are imported into the repository.
   Future<void> ensureInitialProgramsImported() async {
     final flag = _preferencesBox.get('initial_programs_loaded');
     if (flag == 'true') {
@@ -45,6 +48,7 @@ class ProgramRepository {
     await _preferencesBox.put('initial_programs_loaded', 'true');
   }
 
+  /// Loads all programs from the repository.
   Future<List<WorkoutProgram>> loadPrograms() async {
     final items = <WorkoutProgram>[];
     for (final key in _programBox.keys) {
@@ -65,6 +69,7 @@ class ProgramRepository {
     return items;
   }
 
+  /// Watches all programs in the repository for changes.
   Stream<List<WorkoutProgram>> watchPrograms() async* {
     yield await loadPrograms();
     await for (final _ in _programBox.watch()) {
@@ -72,6 +77,7 @@ class ProgramRepository {
     }
   }
 
+  /// Inserts or updates a program in the repository.
   Future<void> upsertProgram(WorkoutProgram program) async {
     final now = DateTime.now();
     final payload = program.copyWith(
@@ -81,10 +87,12 @@ class ProgramRepository {
     await _programBox.put(payload.id, jsonEncode(payload.toJson()));
   }
 
+  /// Deletes a program from the repository.
   Future<void> deleteProgram(String programId) async {
     await _programBox.delete(programId);
   }
 
+  /// Imports a program from a URL.
   Future<WorkoutProgram> importProgramFromUrl(Uri url) async {
     final response = await http.get(url);
     if (response.statusCode >= 400) {
@@ -95,12 +103,14 @@ class ProgramRepository {
     return program;
   }
 
+  /// Imports a program from a raw JSON string.
   Future<WorkoutProgram> importProgramFromRawJson(String content) async {
     final program = _parser.parseFromJsonString(content);
     await upsertProgram(program);
     return program;
   }
 
+  /// Gets a program from the repository by its ID.
   Future<WorkoutProgram?> getProgram(String id) async {
     final raw = _programBox.get(id);
     if (raw == null) {
@@ -110,6 +120,7 @@ class ProgramRepository {
     return WorkoutProgram.fromJson(decoded);
   }
 
+  /// Renames a program in the repository.
   Future<void> renameProgram({
     required String programId,
     required String newName,

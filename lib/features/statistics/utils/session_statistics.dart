@@ -1,6 +1,8 @@
 import '../../../core/models/workout_session.dart';
 
+/// A class that holds the metrics for a set of workout sessions.
 class SessionMetrics {
+  /// Creates a new session metrics object.
   SessionMetrics({
     required this.totalSessions,
     required this.totalVolume,
@@ -10,43 +12,73 @@ class SessionMetrics {
     required this.exerciseTrends,
   });
 
+  /// The total number of sessions.
   final int totalSessions;
+
+  /// The total volume lifted.
   final double totalVolume;
+
+  /// The volume points over time.
   final List<VolumePoint> volumePoints;
+
+  /// The best lift for each exercise.
   final Map<String, double> bestLiftByExercise;
+
+  /// The volume by category.
   final List<CategoryVolumeSeries> volumeByCategory;
+
+  /// The exercise trends.
   final List<ExerciseTrendSeries> exerciseTrends;
 
+  /// The average volume per session.
   double get averageVolume =>
       totalSessions == 0 ? 0 : totalVolume / totalSessions;
 }
 
+/// A class that represents a volume point in time.
 class VolumePoint {
+  /// Creates a new volume point.
   VolumePoint(this.date, this.volume);
 
+  /// The date of the volume point.
   final DateTime date;
+
+  /// The volume of the volume point.
   final double volume;
 }
 
+/// A class that represents a series of volume points for a category.
 class CategoryVolumeSeries {
+  /// Creates a new category volume series.
   CategoryVolumeSeries({required this.category, required this.points});
 
+  /// The category of the series.
   final String category;
+
+  /// The points in the series.
   final List<VolumePoint> points;
 }
 
+/// A class that represents a series of exercise trends.
 class ExerciseTrendSeries {
+  /// Creates a new exercise trend series.
   ExerciseTrendSeries({
     required this.exerciseId,
     required this.exerciseName,
     required this.points,
   });
 
+  /// The ID of the exercise.
   final String exerciseId;
+
+  /// The name of the exercise.
   final String exerciseName;
+
+  /// The points in the series.
   final List<VolumePoint> points;
 }
 
+/// Computes the metrics for a list of workout sessions.
 SessionMetrics computeMetrics(
   List<WorkoutSession> sessions, {
   String? programId,
@@ -155,6 +187,7 @@ double _sessionVolume(WorkoutSession session) {
   return volume;
 }
 
+/// Groups a list of workout sessions by day.
 Map<DateTime, List<WorkoutSession>> sessionsByDay(
   List<WorkoutSession> sessions, {
   String? programId,
@@ -172,17 +205,24 @@ Map<DateTime, List<WorkoutSession>> sessionsByDay(
   return map;
 }
 
+/// A builder for creating [ExerciseTrendSeries] objects.
 class ExerciseTrendSeriesBuilder {
+  /// Creates a new exercise trend series builder.
   ExerciseTrendSeriesBuilder(this.id, this.name);
 
+  /// The ID of the exercise.
   final String id;
+
+  /// The name of the exercise.
   final String name;
   final Map<DateTime, double> _points = {};
 
+  /// Adds a point to the series.
   void addPoint(DateTime date, double weight) {
     _points[date] = weight;
   }
 
+  /// Builds the exercise trend series.
   ExerciseTrendSeries build() {
     final points = _points.entries
         .map((entry) => VolumePoint(entry.key, entry.value))

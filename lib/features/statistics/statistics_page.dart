@@ -19,19 +19,24 @@ import '../programs/providers/programs_providers.dart';
 import '../session/providers/session_providers.dart';
 import 'utils/session_statistics.dart';
 
+/// The provider for the statistics program filter.
 final statisticsProgramFilterProvider =
     NotifierProvider<StatisticsProgramFilterNotifier, String?>(
       StatisticsProgramFilterNotifier.new,
     );
 
+/// A notifier for the statistics program filter.
 class StatisticsProgramFilterNotifier extends Notifier<String?> {
   @override
   String? build() => null;
 
+  /// Sets the program filter.
   void set(String? value) => state = value;
 }
 
+/// The page that displays the statistics.
 class StatisticsPage extends ConsumerStatefulWidget {
+  /// Creates a new statistics page.
   const StatisticsPage({super.key});
 
   @override

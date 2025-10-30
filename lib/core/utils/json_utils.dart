@@ -1,3 +1,4 @@
+/// Strips comments from a JSON string.
 String stripJsonComments(String input) {
   final buffer = StringBuffer();
   var i = 0;

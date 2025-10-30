@@ -12,7 +12,9 @@ import '../programs/providers/programs_providers.dart';
 import 'providers/active_session_controller.dart';
 import 'providers/session_providers.dart';
 
+/// The page that displays the session information.
 class SessionPage extends ConsumerWidget {
+  /// Creates a new session page.
   const SessionPage({super.key});
 
   @override

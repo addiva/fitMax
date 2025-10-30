@@ -9,11 +9,13 @@ import '../../../core/providers/program_repository_provider.dart';
 import '../../../core/repositories/program_repository.dart';
 import '../../../core/utils/file_loader.dart';
 
+/// The provider for the [ProgramsController].
 final programsControllerProvider =
     AsyncNotifierProvider.autoDispose<ProgramsController, void>(
       ProgramsController.new,
     );
 
+/// A controller for managing programs.
 class ProgramsController extends AsyncNotifier<void> {
   @override
   Future<void> build() async {
@@ -22,6 +24,7 @@ class ProgramsController extends AsyncNotifier<void> {
 
   ProgramRepository get _repository => ref.read(programRepositoryProvider);
 
+  /// Imports a program from a file.
   Future<WorkoutProgram?> importFromFile() async {
     try {
       state = const AsyncValue.loading();
@@ -45,6 +48,7 @@ class ProgramsController extends AsyncNotifier<void> {
     }
   }
 
+  /// Imports a program from the clipboard.
   Future<WorkoutProgram?> importFromClipboard() async {
     try {
       state = const AsyncValue.loading();
@@ -63,6 +67,7 @@ class ProgramsController extends AsyncNotifier<void> {
     }
   }
 
+  /// Imports a program from a URL.
   Future<WorkoutProgram?> importFromUrl(String url) async {
     try {
       state = const AsyncValue.loading();
@@ -76,6 +81,7 @@ class ProgramsController extends AsyncNotifier<void> {
     }
   }
 
+  /// Deletes a program.
   Future<void> deleteProgram(String programId) async {
     try {
       state = const AsyncValue.loading();
@@ -87,6 +93,7 @@ class ProgramsController extends AsyncNotifier<void> {
     }
   }
 
+  /// Renames a program.
   Future<void> renameProgram({
     required String programId,
     required String newName,
@@ -101,6 +108,7 @@ class ProgramsController extends AsyncNotifier<void> {
     }
   }
 
+  /// Exports a program to a JSON string.
   Future<String> exportProgram(String programId) async {
     final program = await _repository.getProgram(programId);
     if (program == null) {
