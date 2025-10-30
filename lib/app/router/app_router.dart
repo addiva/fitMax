@@ -8,13 +8,24 @@ import '../../features/session/start_session_page.dart';
 import '../../features/statistics/statistics_page.dart';
 import '../../l10n/app_localizations.dart';
 
+/// The routes in the application.
 enum AppRoute {
+  /// The programs route.
   programs('/programs'),
+
+  /// The statistics route.
   statistics('/statistics'),
+
+  /// The session route.
   session('/session'),
+
+  /// The start session route.
   sessionStart('start');
 
+  /// Creates a new app route.
   const AppRoute(this.path);
+
+  /// The path of the route.
   final String path;
 }
 
@@ -22,6 +33,7 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey(
   debugLabel: 'root',
 );
 
+/// The provider for the GoRouter.
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,

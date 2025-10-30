@@ -7,11 +7,15 @@ import 'router/app_router.dart';
 import 'settings/app_settings_controller.dart';
 import 'theme/app_theme.dart';
 
+/// The root widget of the application.
 class FitmaxApp extends ConsumerWidget {
+  /// Creates a new Fitmax app.
   const FitmaxApp({super.key});
 
+  /// The default accent color of the application.
   static const defaultAccent = Color(0xFF27AE60);
 
+  /// The list of supported locales.
   static const supportedLocales = [
     Locale('en'),
     Locale('it'),

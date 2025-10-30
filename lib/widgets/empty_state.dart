@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// A widget that displays an empty state.
 class EmptyState extends StatelessWidget {
+  /// Creates a new empty state widget.
   const EmptyState({
     super.key,
     required this.icon,
@@ -8,8 +10,13 @@ class EmptyState extends StatelessWidget {
     this.subtitle,
   });
 
+  /// The icon to display.
   final IconData icon;
+
+  /// The title to display.
   final String title;
+
+  /// The subtitle to display.
   final String? subtitle;
 
   @override

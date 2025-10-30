@@ -6,9 +6,12 @@ import '../../app/settings/app_settings_controller.dart';
 import '../../app/settings/app_settings_state.dart';
 import '../../l10n/app_localizations.dart';
 
+/// The settings sheet.
 class SettingsSheet extends StatelessWidget {
+  /// Creates a new settings sheet.
   const SettingsSheet({super.key});
 
+  /// Shows the settings sheet.
   static Future<void> show(BuildContext context) {
     return showModalBottomSheet<void>(
       context: context,

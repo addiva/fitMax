@@ -8,7 +8,9 @@ import '../../l10n/app_localizations.dart';
 import 'providers/active_session_controller.dart';
 import 'providers/active_session_state.dart';
 
+/// The page for starting a workout session.
 class StartSessionPage extends ConsumerStatefulWidget {
+  /// Creates a new start session page.
   const StartSessionPage({super.key});
 
   @override

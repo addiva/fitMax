@@ -15,11 +15,13 @@ import '../../../core/repositories/session_repository.dart';
 import '../../../core/services/rest_notification_service.dart';
 import 'active_session_state.dart';
 
+/// A provider that exposes the [ActiveSessionController] to the app.
 final activeSessionProvider =
     NotifierProvider<ActiveSessionController, ActiveSessionState?>(
       ActiveSessionController.new,
     );
 
+/// A controller that manages the state of an active workout session.
 class ActiveSessionController extends Notifier<ActiveSessionState?> {
   RestNotificationService get _notifications =>
       ref.read(restNotificationServiceProvider);
@@ -42,6 +44,7 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     return null;
   }
 
+  /// Starts a new workout session for the given [program] and [week].
   Future<void> startSession({
     required WorkoutProgram program,
     required int week,
@@ -86,12 +89,14 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     state = ActiveSessionState(session: session, exerciseIndex: 0);
   }
 
+  /// Cancels the current workout session.
   void cancelSession() {
     _restTimer?.cancel();
     _notifications.cancel();
     state = null;
   }
 
+  /// Selects the exercise at the given [index].
   void selectExercise(int index) {
     final current = state;
     if (current == null) return;
@@ -105,18 +110,26 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     _resetRestState();
   }
 
+  /// Selects the next exercise in the session.
   void nextExercise() {
     final current = state;
     if (current == null) return;
     selectExercise(current.exerciseIndex + 1);
   }
 
+  /// Selects the previous exercise in the session.
   void previousExercise() {
     final current = state;
     if (current == null) return;
     selectExercise(current.exerciseIndex - 1);
   }
 
+  /// Updates a set in the current workout session.
+  ///
+  /// The [exerciseIndex] is the index of the exercise to update,
+  /// the [setIndex] is the index of the set to update,
+  /// the [reps] is the new number of reps,
+  /// and the [weight] is the new weight.
   void updateSet({
     required int exerciseIndex,
     required int setIndex,
@@ -140,6 +153,9 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     );
   }
 
+  /// Deletes an exercise from the current workout session.
+  ///
+  /// The [exerciseIndex] is the index of the exercise to delete.
   void deleteExercise(int exerciseIndex) {
     final current = state;
     if (current == null) return;
@@ -148,7 +164,7 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
       return;
     }
     exercises.removeAt(exerciseIndex);
-    final newIndex = min(exerciseIndex, max(0, exercises.length - 1));
+    final newIndex = exerciseIndex.clamp(0, max(0, exercises.length - 1));
     state = current.copyWith(
       session: current.session.copyWith(exercises: exercises),
       exerciseIndex: exercises.isEmpty ? 0 : newIndex,
@@ -156,6 +172,10 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     _resetRestState();
   }
 
+  /// Starts the rest timer for the given number of [seconds].
+  ///
+  /// If [seconds] is not provided, the default rest time for the current
+  /// exercise will be used.
   void startRest([int? seconds]) {
     final current = state;
     if (current == null) return;
@@ -179,6 +199,7 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     _startRestTicker();
   }
 
+  /// Stops the rest timer.
   void stopRest() {
     final current = state;
     if (current == null) return;
@@ -190,6 +211,7 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     );
   }
 
+  /// Pauses the rest timer.
   void pauseRest() {
     if (_restTimer == null || _restPaused) {
       return;
@@ -210,6 +232,7 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     _pushCountdown(remaining, paused: true);
   }
 
+  /// Resumes the rest timer.
   void resumeRest() {
     if (!_restPaused) {
       return;
@@ -233,6 +256,9 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
     _startRestTicker();
   }
 
+  /// Finishes the current workout session and saves it to the repository.
+  ///
+  /// The [notes] are any notes that the user wants to add to the session.
   Future<void> finishSession({String? notes}) async {
     final current = state;
     if (current == null) return;

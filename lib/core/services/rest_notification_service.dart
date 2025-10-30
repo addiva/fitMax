@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+/// A service for managing rest notifications.
 class RestNotificationService {
   RestNotificationService._internal();
 
+  /// The singleton instance of the service.
   static final RestNotificationService instance =
       RestNotificationService._internal();
 
@@ -20,6 +22,7 @@ class RestNotificationService {
       'Mostra il conto alla rovescia durante i recuperi delle sessioni';
   static const _payloadActiveSession = 'active_session';
 
+  /// Initializes the service.
   Future<void> initialize() async {
     if (_initialized) {
       return;
@@ -95,6 +98,7 @@ class RestNotificationService {
     _initialized = true;
   }
 
+  /// Updates the countdown notification.
   Future<void> updateCountdown(
     int seconds, {
     bool paused = false,
@@ -152,6 +156,7 @@ class RestNotificationService {
     );
   }
 
+  /// Cancels the countdown notification.
   Future<void> cancel() async {
     if (!_initialized) {
       return;
@@ -159,5 +164,6 @@ class RestNotificationService {
     await _plugin.cancel(1001);
   }
 
+  /// A stream of notification tap events.
   Stream<void> get tapStream => _tapController.stream;
 }
