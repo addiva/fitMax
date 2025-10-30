@@ -2,6 +2,8 @@
 
 FitMax is a Flutter app for planning, tracking, and analyzing workouts, with full offline/online support, light/dark themes, automatic or manual language selection, and customizable accent colors. The app allows you to import JSON workout plans (from a file, URL, or clipboard), organize daily sessions, and view charts, a calendar, and progress statistics.
 
+> **Workout Program Builder**: To simplify the creation of workout programs, a web-based JSON builder is available. Open [`web/index.html`](web/index.html) in your browser to get started.
+
 ## Key Features
 - **Smart Programs**: Full CRUD of workout plans with JSON import/export, suggestions for the next session, and a weekly preview.
 - **Guided Sessions**: Rest timer with vibration/alert, progression with pre-filled previous sets, video support, and notes.
@@ -79,14 +81,6 @@ Open the ⚙️ icon in the Programs tab to:
 - choose the theme (System/Light/Dark),
 - select the language manually,
 - set the accent color (quick palette, custom picker, reset).
-
-## Web-based Program Generator
-In the [`docs/`](docs/index.html) folder, you'll find a responsive HTML page to create JSON programs without writing them manually.
-
-1. Open `docs/index.html` (or publish on GitHub Pages pointing to the `docs` folder).
-2. Fill in the program data (name, weeks, deload).
-3. Add exercises, fill in the weekly progressions.
-4. Press **Generate JSON** and copy/download the result.
 
 ## Localization
 The `.arb` files are in `lib/l10n`. You can update the texts and regenerate the localization files with:
