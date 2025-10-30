@@ -1,4 +1,3 @@
-import 'package:fitmax/core/models/training_program.dart';
 import 'package:fitmax/core/models/workout_session.dart';
 import 'package:fitmax/features/session/providers/active_session_controller.dart';
 import 'package:fitmax/features/session/providers/active_session_state.dart';
@@ -19,9 +18,45 @@ void main() {
         week: 1,
         startedAt: DateTime.now(),
         exercises: [
-          ExerciseSession(exerciseId: '1', exerciseName: 'Exercise 1', sets: [], restSecondsTarget: 60, tut: '', buf: '', intensity: '', repsTarget: '', note: '', category: '', videoUrl: ''),
-          ExerciseSession(exerciseId: '2', exerciseName: 'Exercise 2', sets: [], restSecondsTarget: 60, tut: '', buf: '', intensity: '', repsTarget: '', note: '', category: '', videoUrl: ''),
-          ExerciseSession(exerciseId: '3', exerciseName: 'Exercise 3', sets: [], restSecondsTarget: 60, tut: '', buf: '', intensity: '', repsTarget: '', note: '', category: '', videoUrl: ''),
+          const ExerciseSession(
+            exerciseId: '1',
+            exerciseName: 'Exercise 1',
+            sets: [],
+            restSecondsTarget: 60,
+            tut: '',
+            buf: null,
+            intensity: '',
+            repsTarget: '',
+            note: '',
+            category: '',
+            videoUrl: '',
+          ),
+          const ExerciseSession(
+            exerciseId: '2',
+            exerciseName: 'Exercise 2',
+            sets: [],
+            restSecondsTarget: 60,
+            tut: '',
+            buf: null,
+            intensity: '',
+            repsTarget: '',
+            note: '',
+            category: '',
+            videoUrl: '',
+          ),
+          const ExerciseSession(
+            exerciseId: '3',
+            exerciseName: 'Exercise 3',
+            sets: [],
+            restSecondsTarget: 60,
+            tut: '',
+            buf: null,
+            intensity: '',
+            repsTarget: '',
+            note: '',
+            category: '',
+            videoUrl: '',
+          ),
         ],
       ),
       exerciseIndex: 0,

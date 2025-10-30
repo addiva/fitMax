@@ -1,6 +1,11 @@
+import 'dart:math' as math;
+
+import 'package:collection/collection.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/models/training_program.dart';
@@ -274,7 +279,11 @@ class _ProgramPreview extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             for (final exercise in exercises)
-              _ExercisePreview(exercise: exercise, week: week),
+              _ExercisePreview(
+                exercise: exercise,
+                week: week,
+                programId: program.id,
+              ),
           ],
         ),
       ),
@@ -282,14 +291,19 @@ class _ProgramPreview extends StatelessWidget {
   }
 }
 
-class _ExercisePreview extends StatelessWidget {
-  const _ExercisePreview({required this.exercise, required this.week});
+class _ExercisePreview extends ConsumerWidget {
+  const _ExercisePreview({
+    required this.exercise,
+    required this.week,
+    required this.programId,
+  });
 
   final WorkoutExercise exercise;
   final int week;
+  final String programId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final plan = exercise.weeks.firstWhere(
       (item) => item.week == week,
@@ -297,29 +311,33 @@ class _ExercisePreview extends StatelessWidget {
           exercise.weeks.isEmpty ? _fallbackPlan() : exercise.weeks.first,
     );
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(exercise.name, style: Theme.of(context).textTheme.titleMedium),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              _InfoChip(label: l10n.setsShort, value: plan.sets.toString()),
-              _InfoChip(label: l10n.repsShort, value: plan.reps),
-              _InfoChip(
-                label: l10n.restShort,
-                value: _formatRest(plan.restSeconds),
-              ),
-              if (plan.tut != null)
-                _InfoChip(label: l10n.tutShort, value: plan.tut!),
-              if (plan.buf != null)
-                _InfoChip(label: l10n.bufShort, value: '${plan.buf}'),
-            ],
-          ),
-        ],
+    return InkWell(
+      onTap: () => _showTrend(context, ref),
+      borderRadius: BorderRadius.circular(12),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(exercise.name, style: Theme.of(context).textTheme.titleMedium),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                _InfoChip(label: l10n.setsShort, value: plan.sets.toString()),
+                _InfoChip(label: l10n.repsShort, value: plan.reps),
+                _InfoChip(
+                  label: l10n.restShort,
+                  value: _formatRest(plan.restSeconds),
+                ),
+                if (plan.tut != null)
+                  _InfoChip(label: l10n.tutShort, value: plan.tut!),
+                if (plan.buf != null)
+                  _InfoChip(label: l10n.bufShort, value: '${plan.buf}'),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -338,6 +356,97 @@ class _ExercisePreview extends StatelessWidget {
       return '${minutes}m';
     }
     return '${minutes}m ${remainder}s';
+  }
+
+  Future<void> _showTrend(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final sessions = ref.read(sessionHistoryProvider).asData?.value;
+
+    if (sessions == null || sessions.isEmpty) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.statisticsEmpty)),
+      );
+      return;
+    }
+
+    final weightByDate = <DateTime, double>{};
+    for (final session in sessions.where((s) => s.programId == programId)) {
+      final exerciseSession = session.exercises.firstWhereOrNull(
+        (item) => item.exerciseId == exercise.id,
+      );
+      if (exerciseSession == null) continue;
+      double bestWeight = 0;
+      for (final set in exerciseSession.sets) {
+        final weight = set.weight ?? 0;
+        if (weight > bestWeight) {
+          bestWeight = weight;
+        }
+      }
+      if (bestWeight <= 0) continue;
+      final day = DateTime(
+        session.startedAt.year,
+        session.startedAt.month,
+        session.startedAt.day,
+      );
+      weightByDate.update(
+        day,
+        (value) => math.max(value, bestWeight),
+        ifAbsent: () => bestWeight,
+      );
+    }
+
+    if (weightByDate.isEmpty) {
+      if (!context.mounted) return;
+      await showDialog<void>(
+        context: context,
+        builder: (dialogContext) => AlertDialog(
+          title: Text(exercise.name),
+          content: Text(l10n.noExerciseData),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: Text(MaterialLocalizations.of(context).okButtonLabel),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
+    final sortedDates = weightByDate.keys.toList()..sort();
+    final startDate = sortedDates.first;
+    final spots = sortedDates
+        .map(
+          (date) => FlSpot(
+            date.difference(startDate).inDays.toDouble(),
+            weightByDate[date]!,
+          ),
+        )
+        .toList();
+
+    if (!context.mounted) return;
+    await showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(exercise.name),
+        content: SizedBox(
+          width: double.maxFinite,
+          height: 260,
+          child: _ExerciseTrendChart(
+            spots: spots,
+            startDate: startDate,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: Text(MaterialLocalizations.of(context).okButtonLabel),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -530,6 +639,87 @@ void _showSessionDetail(BuildContext context, WorkoutSession session) {
       ),
     ),
   );
+}
+
+class _ExerciseTrendChart extends StatelessWidget {
+  const _ExerciseTrendChart({
+    required this.spots,
+    required this.startDate,
+    required this.color,
+  });
+
+  final List<FlSpot> spots;
+  final DateTime startDate;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final maxWeight = spots.fold<double>(0, (previous, spot) {
+      return math.max(previous, spot.y);
+    });
+    final span = spots.last.x - spots.first.x;
+    double bottomInterval = span <= 0
+        ? 1
+        : span / math.max(1, spots.length - 1);
+    bottomInterval = bottomInterval < 1 ? 1 : bottomInterval;
+
+    double leftInterval = maxWeight == 0 ? 1 : maxWeight / 4;
+    leftInterval = leftInterval < 1 ? 1 : leftInterval;
+
+    return LineChart(
+      LineChartData(
+        minY: 0,
+        maxY: maxWeight == 0 ? 1 : maxWeight * 1.1,
+        minX: spots.first.x,
+        maxX: spots.last.x,
+        lineBarsData: [
+          LineChartBarData(
+            spots: spots,
+            isCurved: false,
+            color: color,
+            barWidth: 3,
+            dotData: const FlDotData(show: true),
+            belowBarData: BarAreaData(show: false),
+          ),
+        ],
+        gridData: FlGridData(show: true, drawVerticalLine: false),
+        borderData: FlBorderData(show: false),
+        titlesData: FlTitlesData(
+          bottomTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              interval: bottomInterval,
+              getTitlesWidget: (value, meta) {
+                final date = startDate.add(Duration(days: value.toInt()));
+                return Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Text(
+                    DateFormat.Md().format(date),
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                );
+              },
+            ),
+          ),
+          leftTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              reservedSize: 40,
+              interval: leftInterval,
+              getTitlesWidget: (value, meta) =>
+                  Text(value.toStringAsFixed(0)),
+            ),
+          ),
+          rightTitles: const AxisTitles(
+            sideTitles: SideTitles(showTitles: false),
+          ),
+          topTitles: const AxisTitles(
+            sideTitles: SideTitles(showTitles: false),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _InfoChip extends StatelessWidget {

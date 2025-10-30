@@ -47,6 +47,7 @@ class _StatisticsPageState extends ConsumerState<StatisticsPage> {
   late DateTime _focusedDay;
   DateTime? _selectedDay;
   String? _selectedExerciseId;
+  Set<String> _selectedCategories = <String>{};
 
   DateTime _dateOnly(DateTime date) =>
       DateTime(date.year, date.month, date.day);
@@ -57,6 +58,26 @@ class _StatisticsPageState extends ConsumerState<StatisticsPage> {
     final now = DateTime.now();
     _focusedDay = _dateOnly(now);
     _selectedDay = _focusedDay;
+  }
+
+  void _toggleCategory(String category, Set<String> available) {
+    setState(() {
+      if (_selectedCategories.isEmpty) {
+        _selectedCategories = {category};
+      } else if (_selectedCategories.contains(category)) {
+        _selectedCategories = {
+          ..._selectedCategories,
+        }..remove(category);
+      } else {
+        _selectedCategories = {
+          ..._selectedCategories,
+          category,
+        };
+      }
+      _selectedCategories = _selectedCategories
+          .where((item) => available.contains(item))
+          .toSet();
+    });
   }
 
   @override
@@ -95,6 +116,22 @@ class _StatisticsPageState extends ConsumerState<StatisticsPage> {
           final metrics = computeMetrics(sessions, programId: filter);
           final events = sessionsByDay(sessions, programId: filter);
           final exerciseSeries = metrics.exerciseTrends;
+          final availableCategories =
+              metrics.volumeByCategory.map((series) => series.category).toSet();
+
+          if (_selectedCategories.isNotEmpty) {
+            final cleaned = _selectedCategories
+                .where((category) => availableCategories.contains(category))
+                .toSet();
+            if (cleaned.length != _selectedCategories.length) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (!mounted) return;
+                setState(() {
+                  _selectedCategories = cleaned;
+                });
+              });
+            }
+          }
           if (exerciseSeries.isNotEmpty &&
               (_selectedExerciseId == null ||
                   !exerciseSeries.any(
@@ -123,7 +160,13 @@ class _StatisticsPageState extends ConsumerState<StatisticsPage> {
               const SizedBox(height: 16),
               _OverviewSection(metrics: metrics),
               const SizedBox(height: 24),
-              _CategoryVolumeChart(metrics: metrics),
+              _CategoryVolumeChart(
+                metrics: metrics,
+                availableCategories: availableCategories,
+                selectedCategories: _selectedCategories,
+                onToggleCategory: (category) =>
+                    _toggleCategory(category, availableCategories),
+              ),
               const SizedBox(height: 24),
               _ExerciseProgressionChart(
                 seriesList: exerciseSeries,
@@ -350,9 +393,20 @@ class _StatCard extends StatelessWidget {
 }
 
 class _CategoryVolumeChart extends StatelessWidget {
-  const _CategoryVolumeChart({required this.metrics});
+  const _CategoryVolumeChart({
+    required this.metrics,
+    required this.availableCategories,
+    required this.selectedCategories,
+    required this.onToggleCategory,
+  });
 
   final SessionMetrics metrics;
+  final Set<String> availableCategories;
+  final Set<String> selectedCategories;
+  final ValueChanged<String> onToggleCategory;
+
+  Set<String> get _activeCategories =>
+      selectedCategories.isEmpty ? availableCategories : selectedCategories;
 
   @override
   Widget build(BuildContext context) {
@@ -361,8 +415,15 @@ class _CategoryVolumeChart extends StatelessWidget {
       return EmptyState(icon: Icons.show_chart, title: l10n.statisticsEmpty);
     }
 
-    final allPoints = metrics.volumeByCategory
-        .expand((series) => series.points)
+    final seriesList = metrics.volumeByCategory.toList();
+    final filteredEntries = seriesList
+        .asMap()
+        .entries
+        .where((entry) => _activeCategories.contains(entry.value.category))
+        .toList();
+
+    final allPoints = filteredEntries
+        .expand((entry) => entry.value.points)
         .toList();
     if (allPoints.isEmpty) {
       return EmptyState(icon: Icons.show_chart, title: l10n.statisticsEmpty);
@@ -372,9 +433,7 @@ class _CategoryVolumeChart extends StatelessWidget {
         .map((point) => point.date)
         .reduce((a, b) => a.isBefore(b) ? a : b);
 
-    final lines = metrics.volumeByCategory
-        .asMap()
-        .entries
+    final lines = filteredEntries
         .map((entry) {
           final index = entry.key;
           final series = entry.value;
@@ -389,16 +448,31 @@ class _CategoryVolumeChart extends StatelessWidget {
           if (spots.isEmpty) {
             return null;
           }
+          final showDots = spots.length <= 2;
+          final seriesColor = _seriesColor(index, Theme.of(context).colorScheme);
           return LineChartBarData(
             spots: spots,
             isCurved: true,
-            color: _seriesColor(index, Theme.of(context).colorScheme),
+            color: seriesColor,
             barWidth: 3,
-            dotData: const FlDotData(show: false),
+            dotData: FlDotData(
+              show: showDots,
+              getDotPainter:
+                  (spot, xPercentage, barData, indexInBar) => FlDotCirclePainter(
+                    radius: 4,
+                    color: seriesColor,
+                    strokeColor: Theme.of(context).colorScheme.onSurface,
+                    strokeWidth: 1.5,
+                  ),
+            ),
           );
         })
         .whereType<LineChartBarData>()
         .toList();
+
+    if (lines.isEmpty) {
+      return EmptyState(icon: Icons.show_chart, title: l10n.statisticsEmpty);
+    }
 
     final maxVolume = lines
         .expand((line) => line.spots)
@@ -438,17 +512,22 @@ class _CategoryVolumeChart extends StatelessWidget {
               Wrap(
                 spacing: 12,
                 runSpacing: 8,
-                children: metrics.volumeByCategory
+                children: seriesList
                     .asMap()
                     .entries
                     .map(
-                      (entry) => _LegendChip(
-                        color: _seriesColor(
-                          entry.key,
-                          Theme.of(context).colorScheme,
-                        ),
-                        label: entry.value.category,
-                      ),
+                      (entry) {
+                        final category = entry.value.category;
+                        final color =
+                            _seriesColor(entry.key, Theme.of(context).colorScheme);
+                        final isSelected = _activeCategories.contains(category);
+                        return _LegendChip(
+                          color: color,
+                          label: category,
+                          selected: isSelected,
+                          onSelected: (_) => onToggleCategory(category),
+                        );
+                      },
                     )
                     .toList(),
               ),
@@ -677,16 +756,27 @@ class _ExerciseProgressionChart extends StatelessWidget {
 }
 
 class _LegendChip extends StatelessWidget {
-  const _LegendChip({required this.color, required this.label});
+  const _LegendChip({
+    required this.color,
+    required this.label,
+    required this.selected,
+    required this.onSelected,
+  });
 
   final Color color;
   final String label;
+  final bool selected;
+  final ValueChanged<bool> onSelected;
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
+    return FilterChip(
       avatar: CircleAvatar(radius: 6, backgroundColor: color),
       label: Text(label),
+      selected: selected,
+      onSelected: onSelected,
+      selectedColor: color.withValues(alpha: 0.18),
+      showCheckmark: false,
     );
   }
 }

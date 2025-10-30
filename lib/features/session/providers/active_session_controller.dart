@@ -164,7 +164,9 @@ class ActiveSessionController extends Notifier<ActiveSessionState?> {
       return;
     }
     exercises.removeAt(exerciseIndex);
-    final newIndex = exerciseIndex.clamp(0, max(0, exercises.length - 1));
+    final newIndex = exercises.isEmpty
+        ? 0
+        : exerciseIndex.clamp(0, exercises.length - 1).toInt();
     state = current.copyWith(
       session: current.session.copyWith(exercises: exercises),
       exerciseIndex: exercises.isEmpty ? 0 : newIndex,
