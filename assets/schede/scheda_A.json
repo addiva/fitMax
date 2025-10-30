@@ -1,0 +1,128 @@
+{
+  "id": "A",
+  "name": "Allenamento A",
+  "note": "Spinte / Schiena leggero",
+  "weeks": { "total": 8, "deload": 4 },
+  "exercises": [
+    {
+      "name": "Spinte manubri panca piana",
+      "category": "petto",
+      "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "sets": 3, "reps": "10",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9+",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",   "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "inherit": 1, "set_delta": -1 }, /*(settimana scarico)*/
+        { "sets": 3, "reps": "10",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9",   "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",   "rest_sec": 180, "tut": "3-1-0-0", "buf": 3 }
+      ]
+    },
+    {
+      "name": "Alzate laterali in piedi",
+      "category": "spalle",
+      "note": "",
+      "progression": [
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Croci ai cavi panca 30 gradi",
+      "category": "petto",
+      "note": "",
+      "progression": [
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Alzate laterali al cavo singolo con cavigliera",
+      "category": "spalle",
+      "note": "",
+      "progression": [
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Pulley triangolo",
+      "category": "pull",
+      "note": "",
+      "progression": [
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Lat presa mag",
+      "category": "pull",
+      "note": "inclinato indietro — petto in fuori",
+      "progression": [
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Push down sbarra EZ",
+      "category": "tricipiti",
+      "note": "",
+      "progression": [
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    },
+    {
+      "name": "Crunch al cavo",
+      "category": "core",
+      "note": "",
+      "progression": [
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]
+    }
+  ]
+}

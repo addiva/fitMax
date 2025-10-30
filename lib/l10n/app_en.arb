@@ -1,0 +1,152 @@
+{
+  "@@locale": "en",
+  "appTitle": "FitMax",
+  "tabPrograms": "Programs",
+  "tabStatistics": "Statistics",
+  "tabSession": "Session",
+  "actionAdd": "Add",
+  "actionEdit": "Edit",
+  "actionDelete": "Delete",
+  "actionSave": "Save",
+  "actionCancel": "Cancel",
+  "themeLabel": "Theme",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "languageLabel": "Language",
+  "languageSystem": "System",
+  "languageItalian": "Italian",
+  "languageEnglish": "English",
+  "programsEmptyTitle": "No programs yet",
+  "programsEmptySubtitle": "Import a JSON plan or create a new one to get started.",
+  "importFromFile": "Import from file",
+  "importFromUrl": "Import from URL",
+  "programName": "Program name",
+  "programNote": "Note",
+  "weeksCount": "Weeks",
+  "select": "Select",
+  "sessionStart": "Start session",
+  "sessionResume": "Resume",
+  "sessionEnd": "Finish session",
+  "sessionRest": "Rest",
+  "sessionRestStart": "Start",
+  "sessionRestReset": "Reset",
+  "statisticsEmpty": "Add a session to see your statistics.",
+  "calendarTitle": "Training calendar",
+  "filtersTitle": "Filters",
+  "weekCurrentToggle": "Show current week only",
+  "suggestedSessionTitle": "Suggested session",
+  "suggestedSessionReason": "Based on your last workout.",
+  "exportData": "Export data",
+  "importData": "Import data",
+  "deleteConfirmation": "Are you sure?",
+  "deleteProgramDescription": "This will remove the program and its local data.",
+  "actionRename": "Rename",
+  "importFromClipboard": "Import from clipboard",
+  "exportProgram": "Export JSON",
+  "renameProgram": "Rename program",
+  "programNameHint": "Program name",
+  "programDeleteConfirmTitle": "Delete program?",
+  "programDeleteConfirmMessage": "This will remove {name} and its history.",
+  "weekLabel": "Week {number}",
+  "deloadWeekLabel": "Deload",
+  "setsShort": "Sets",
+  "repsShort": "Reps",
+  "restShort": "Rest",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "Intensity",
+  "notesShort": "Notes",
+  "videoShort": "Video",
+  "programImportedMessage": "Imported {name}.",
+  "programDeletedMessage": "Deleted {name}.",
+  "programRenamedMessage": "Renamed to {name}.",
+  "programExportCopiedMessage": "JSON copied to clipboard.",
+  "programImportError": "Unable to import program.",
+  "programDeleteError": "Unable to delete program.",
+  "programRenameError": "Unable to rename program.",
+  "urlPromptLabel": "Program URL",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "Confirm",
+  "close": "Close",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "Last session: {date}",
+  "noSessionsYet": "No sessions recorded yet.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "Weight",
+  "sessionFinishConfirmMessage": "Save and close this session?",
+  "settings": "Settings",
+  "allProgramsOption": "All programs",
+  "volumeLabel": "Volume",
+  "bestLiftLabel": "Best lifts",
+  "copiedToClipboard": "Copied to clipboard.",
+  "importedSessionsMessage": "Imported {count} sessions.",
+  "noSessionsForDay": "No sessions for this day.",
+  "fileSaveUnsupported": "File saving is not supported on this platform. JSON copied to clipboard.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "Sessions",
+  "averageLabel": "Average",
+  "accentColorLabel": "Accent color",
+  "accentColorCustom": "Custom color",
+  "accentColorReset": "Reset",
+  "languageGerman": "German",
+  "languageAlbanian": "Albanian",
+  "languageFrench": "French",
+  "languageSpanish": "Spanish",
+  "languageRussian": "Russian",
+  "languageHebrew": "Hebrew",
+  "languageArabic": "Arabic",
+  "sessionRestPause": "Pause",
+  "sessionRestResume": "Resume",
+  "sessionRestPaused": "Timer paused",
+  "volumeLegend": "Total weight × reps per muscle group on each day.",
+  "bestLiftLegend": "Top weight recorded per exercise across the selected history.",
+  "categoryVolumeTitle": "Volume by muscle group",
+  "exerciseProgressionTitle": "Exercise progression",
+  "exerciseProgressionLegend": "Best weight logged per session for the selected exercise.",
+  "noExerciseData": "No exercise data yet.",
+  "sessionDeleteTitle": "Delete session?",
+  "sessionDeleteMessage": "This will remove the session and its exercise logs.",
+  "deleteSession": "Delete session",
+  "sessionDetailTitle": "Session details",
+  "sessionDetailClose": "Close",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

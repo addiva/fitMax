@@ -1,0 +1,152 @@
+{
+  "@@locale": "es",
+  "appTitle": "FitMax",
+  "tabPrograms": "Programas",
+  "tabStatistics": "Estadísticas",
+  "tabSession": "Sesión",
+  "actionAdd": "Agregar",
+  "actionEdit": "Editar",
+  "actionDelete": "Eliminar",
+  "actionSave": "Guardar",
+  "actionCancel": "Cancelar",
+  "themeLabel": "Tema",
+  "themeSystem": "Sistema",
+  "themeLight": "Claro",
+  "themeDark": "Oscuro",
+  "languageLabel": "Idioma",
+  "languageSystem": "Sistema",
+  "languageItalian": "Italiano",
+  "languageEnglish": "Inglés",
+  "programsEmptyTitle": "Sin programas",
+  "programsEmptySubtitle": "Importa un plan en JSON o crea uno nuevo para comenzar.",
+  "importFromFile": "Importar desde archivo",
+  "importFromUrl": "Importar desde URL",
+  "programName": "Nombre del programa",
+  "programNote": "Nota",
+  "weeksCount": "Semanas",
+  "select": "Seleccionar",
+  "sessionStart": "Iniciar sesión",
+  "sessionResume": "Reanudar",
+  "sessionEnd": "Finalizar sesión",
+  "sessionRest": "Descanso",
+  "sessionRestStart": "Inicio",
+  "sessionRestReset": "Reiniciar",
+  "statisticsEmpty": "Agrega una sesión para ver las estadísticas.",
+  "calendarTitle": "Calendario de entrenamiento",
+  "filtersTitle": "Filtros",
+  "weekCurrentToggle": "Mostrar solo la semana actual",
+  "suggestedSessionTitle": "Sesión sugerida",
+  "suggestedSessionReason": "Basada en tu último entrenamiento.",
+  "exportData": "Exportar datos",
+  "importData": "Importar datos",
+  "deleteConfirmation": "¿Estás seguro?",
+  "deleteProgramDescription": "Esto eliminará el programa y sus datos locales.",
+  "actionRename": "Renombrar",
+  "importFromClipboard": "Importar desde el portapapeles",
+  "exportProgram": "Exportar JSON",
+  "renameProgram": "Renombrar programa",
+  "programNameHint": "Nombre del programa",
+  "programDeleteConfirmTitle": "¿Eliminar programa?",
+  "programDeleteConfirmMessage": "Esto eliminará {name} y su historial.",
+  "weekLabel": "Semana {number}",
+  "deloadWeekLabel": "Descarga",
+  "setsShort": "Series",
+  "repsShort": "Reps",
+  "restShort": "Desc",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "Intensidad",
+  "notesShort": "Notas",
+  "videoShort": "Video",
+  "programImportedMessage": "Se importó {name}.",
+  "programDeletedMessage": "Se eliminó {name}.",
+  "programRenamedMessage": "Renombrado a {name}.",
+  "programExportCopiedMessage": "JSON copiado al portapapeles.",
+  "programImportError": "No se pudo importar el programa.",
+  "programDeleteError": "No se pudo eliminar el programa.",
+  "programRenameError": "No se pudo renombrar el programa.",
+  "urlPromptLabel": "URL del programa",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "Confirmar",
+  "close": "Cerrar",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "Última sesión: {date}",
+  "noSessionsYet": "Aún no hay sesiones registradas.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "Peso",
+  "sessionFinishConfirmMessage": "¿Guardar y cerrar esta sesión?",
+  "settings": "Configuración",
+  "allProgramsOption": "Todos los programas",
+  "volumeLabel": "Volumen",
+  "bestLiftLabel": "Mejores pesos",
+  "copiedToClipboard": "Copiado al portapapeles.",
+  "importedSessionsMessage": "Se importaron {count} sesiones.",
+  "noSessionsForDay": "No hay sesiones para este día.",
+  "fileSaveUnsupported": "Esta plataforma no permite guardar. JSON copiado.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "Sesiones",
+  "averageLabel": "Promedio",
+  "accentColorLabel": "Color de acento",
+  "accentColorCustom": "Color personalizado",
+  "accentColorReset": "Restablecer",
+  "languageGerman": "Alemán",
+  "languageAlbanian": "Albanés",
+  "languageFrench": "Francés",
+  "languageSpanish": "Español",
+  "languageRussian": "Ruso",
+  "languageHebrew": "Hebreo",
+  "languageArabic": "Árabe",
+  "sessionRestPause": "Pausa",
+  "sessionRestResume": "Reanudar",
+  "sessionRestPaused": "Temporizador en pausa",
+  "volumeLegend": "Peso total × repeticiones por grupo muscular y por día.",
+  "bestLiftLegend": "Mayor peso registrado por ejercicio en el período seleccionado.",
+  "categoryVolumeTitle": "Volumen por grupo muscular",
+  "exerciseProgressionTitle": "Progresión del ejercicio",
+  "exerciseProgressionLegend": "Mejor peso por sesión para el ejercicio seleccionado.",
+  "noExerciseData": "Aún no hay datos de ejercicios.",
+  "sessionDeleteTitle": "¿Eliminar sesión?",
+  "sessionDeleteMessage": "Se eliminarán la sesión y sus registros.",
+  "deleteSession": "Eliminar sesión",
+  "sessionDetailTitle": "Detalles de la sesión",
+  "sessionDetailClose": "Cerrar",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "@@locale": "fr",
+  "appTitle": "FitMax",
+  "tabPrograms": "Programmes",
+  "tabStatistics": "Statistiques",
+  "tabSession": "Séance",
+  "actionAdd": "Ajouter",
+  "actionEdit": "Modifier",
+  "actionDelete": "Supprimer",
+  "actionSave": "Enregistrer",
+  "actionCancel": "Annuler",
+  "themeLabel": "Thème",
+  "themeSystem": "Système",
+  "themeLight": "Clair",
+  "themeDark": "Sombre",
+  "languageLabel": "Langue",
+  "languageSystem": "Système",
+  "languageItalian": "Italien",
+  "languageEnglish": "Anglais",
+  "programsEmptyTitle": "Aucun programme",
+  "programsEmptySubtitle": "Importez un plan JSON ou créez-en un nouveau pour commencer.",
+  "importFromFile": "Importer depuis un fichier",
+  "importFromUrl": "Importer depuis une URL",
+  "programName": "Nom du programme",
+  "programNote": "Note",
+  "weeksCount": "Semaines",
+  "select": "Sélectionner",
+  "sessionStart": "Démarrer la séance",
+  "sessionResume": "Reprendre",
+  "sessionEnd": "Terminer la séance",
+  "sessionRest": "Repos",
+  "sessionRestStart": "Démarrer",
+  "sessionRestReset": "Réinitialiser",
+  "statisticsEmpty": "Ajoutez une séance pour voir les statistiques.",
+  "calendarTitle": "Calendrier d'entraînement",
+  "filtersTitle": "Filtres",
+  "weekCurrentToggle": "Afficher uniquement la semaine actuelle",
+  "suggestedSessionTitle": "Séance suggérée",
+  "suggestedSessionReason": "Basée sur votre dernier entraînement.",
+  "exportData": "Exporter les données",
+  "importData": "Importer des données",
+  "deleteConfirmation": "Êtes-vous sûr ?",
+  "deleteProgramDescription": "Le programme et ses données locales seront supprimés.",
+  "actionRename": "Renommer",
+  "importFromClipboard": "Importer depuis le presse-papiers",
+  "exportProgram": "Exporter en JSON",
+  "renameProgram": "Renommer le programme",
+  "programNameHint": "Nom du programme",
+  "programDeleteConfirmTitle": "Supprimer le programme ?",
+  "programDeleteConfirmMessage": "{name} et son historique seront supprimés.",
+  "weekLabel": "Semaine {number}",
+  "deloadWeekLabel": "Semaine de décharge",
+  "setsShort": "Séries",
+  "repsShort": "Rép.",
+  "restShort": "Repos",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "Intensité",
+  "notesShort": "Notes",
+  "videoShort": "Vidéo",
+  "programImportedMessage": "{name} importé.",
+  "programDeletedMessage": "{name} supprimé.",
+  "programRenamedMessage": "Renommé en {name}.",
+  "programExportCopiedMessage": "JSON copié dans le presse-papiers.",
+  "programImportError": "Impossible d'importer le programme.",
+  "programDeleteError": "Impossible de supprimer le programme.",
+  "programRenameError": "Impossible de renommer le programme.",
+  "urlPromptLabel": "URL du programme",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "Confirmer",
+  "close": "Fermer",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "Dernière séance : {date}",
+  "noSessionsYet": "Aucune séance enregistrée pour l'instant.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "Poids",
+  "sessionFinishConfirmMessage": "Enregistrer et quitter cette séance ?",
+  "settings": "Réglages",
+  "allProgramsOption": "Tous les programmes",
+  "volumeLabel": "Volume",
+  "bestLiftLabel": "Meilleures charges",
+  "copiedToClipboard": "Copié dans le presse-papiers.",
+  "importedSessionsMessage": "{count} séances importées.",
+  "noSessionsForDay": "Aucune séance pour ce jour.",
+  "fileSaveUnsupported": "Enregistrement non pris en charge sur cette plateforme. JSON copié.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "Séances",
+  "averageLabel": "Moyenne",
+  "accentColorLabel": "Couleur d'accent",
+  "accentColorCustom": "Couleur personnalisée",
+  "accentColorReset": "Réinitialiser",
+  "languageGerman": "Allemand",
+  "languageAlbanian": "Albanais",
+  "languageFrench": "Français",
+  "languageSpanish": "Espagnol",
+  "languageRussian": "Russe",
+  "languageHebrew": "Hébreu",
+  "languageArabic": "Arabe",
+  "sessionRestPause": "Pause",
+  "sessionRestResume": "Reprendre",
+  "sessionRestPaused": "Minuteur en pause",
+  "volumeLegend": "Poids total × répétitions par groupe musculaire et par jour.",
+  "bestLiftLegend": "Charge maximale enregistrée par exercice sur la période choisie.",
+  "categoryVolumeTitle": "Volume par groupe musculaire",
+  "exerciseProgressionTitle": "Progression de l'exercice",
+  "exerciseProgressionLegend": "Meilleure charge par séance pour l'exercice sélectionné.",
+  "noExerciseData": "Pas encore de données d'exercice.",
+  "sessionDeleteTitle": "Supprimer la séance ?",
+  "sessionDeleteMessage": "La séance et ses données seront supprimées.",
+  "deleteSession": "Supprimer la séance",
+  "sessionDetailTitle": "Détails de la séance",
+  "sessionDetailClose": "Fermer",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

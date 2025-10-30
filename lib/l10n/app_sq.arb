@@ -1,0 +1,152 @@
+{
+  "@@locale": "sq",
+  "appTitle": "FitMax",
+  "tabPrograms": "Programet",
+  "tabStatistics": "Statistikat",
+  "tabSession": "Seanca",
+  "actionAdd": "Shto",
+  "actionEdit": "Përpuno",
+  "actionDelete": "Fshi",
+  "actionSave": "Ruaj",
+  "actionCancel": "Anulo",
+  "themeLabel": "Temë",
+  "themeSystem": "Sistem",
+  "themeLight": "E ndritshme",
+  "themeDark": "E errët",
+  "languageLabel": "Gjuha",
+  "languageSystem": "Sistem",
+  "languageItalian": "Italisht",
+  "languageEnglish": "Anglisht",
+  "programsEmptyTitle": "Asnjë program ende",
+  "programsEmptySubtitle": "Importo një plan JSON ose krijo një të ri për të filluar.",
+  "importFromFile": "Importo nga skedari",
+  "importFromUrl": "Importo nga URL",
+  "programName": "Emri i programit",
+  "programNote": "Shënim",
+  "weeksCount": "Java",
+  "select": "Zgjidh",
+  "sessionStart": "Fillo seancën",
+  "sessionResume": "Vazhdo",
+  "sessionEnd": "Përfundo seancën",
+  "sessionRest": "Pushim",
+  "sessionRestStart": "Fillo",
+  "sessionRestReset": "Rivendos",
+  "statisticsEmpty": "Shto një seancë për të parë statistikat.",
+  "calendarTitle": "Kalendari i stërvitjes",
+  "filtersTitle": "Filtra",
+  "weekCurrentToggle": "Shfaq vetëm javën aktuale",
+  "suggestedSessionTitle": "Seancë e sugjeruar",
+  "suggestedSessionReason": "Bazuar në stërvitjen tënde të fundit.",
+  "exportData": "Eksporto të dhëna",
+  "importData": "Importo të dhëna",
+  "deleteConfirmation": "Je i sigurt?",
+  "deleteProgramDescription": "Kjo do të heqë programin dhe të dhënat lokale.",
+  "actionRename": "Riemërto",
+  "importFromClipboard": "Importo nga kujtesa",
+  "exportProgram": "Eksporto JSON",
+  "renameProgram": "Riemërto programin",
+  "programNameHint": "Emri i programit",
+  "programDeleteConfirmTitle": "Ta fshij programin?",
+  "programDeleteConfirmMessage": "Kjo do të heqë {name} dhe historikun e tij.",
+  "weekLabel": "Java {number}",
+  "deloadWeekLabel": "Javë lehtësimi",
+  "setsShort": "Sete",
+  "repsShort": "Përsëritje",
+  "restShort": "Pushim",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "Intensitet",
+  "notesShort": "Shënime",
+  "videoShort": "Video",
+  "programImportedMessage": "{name} u importua.",
+  "programDeletedMessage": "{name} u fshi.",
+  "programRenamedMessage": "U riemërtua në {name}.",
+  "programExportCopiedMessage": "JSON u kopjua në kujtesë.",
+  "programImportError": "Programi nuk mund të importohej.",
+  "programDeleteError": "Programi nuk mund të fshihej.",
+  "programRenameError": "Programi nuk mund të riemërtohej.",
+  "urlPromptLabel": "URL e programit",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "Konfirmo",
+  "close": "Mbyll",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "Seanca e fundit: {date}",
+  "noSessionsYet": "Ende nuk ka seanca të regjistruara.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "Pesha",
+  "sessionFinishConfirmMessage": "Ta ruaj dhe ta mbyll këtë seancë?",
+  "settings": "Cilësimet",
+  "allProgramsOption": "Të gjitha programet",
+  "volumeLabel": "Vëllimi",
+  "bestLiftLabel": "Pesha më e madhe",
+  "copiedToClipboard": "U kopjua në kujtesë.",
+  "importedSessionsMessage": "{count} seanca u importuan.",
+  "noSessionsForDay": "Nuk ka seanca për këtë ditë.",
+  "fileSaveUnsupported": "Ruajtja në këtë pajisje nuk mbështetet. JSON u kopjua.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "Seanca",
+  "averageLabel": "Mesatarja",
+  "accentColorLabel": "Ngjyra e theksit",
+  "accentColorCustom": "Ngjyrë e personalizuar",
+  "accentColorReset": "Rivendos",
+  "languageGerman": "Gjermanisht",
+  "languageAlbanian": "Shqip",
+  "languageFrench": "Frëngjisht",
+  "languageSpanish": "Spanjisht",
+  "languageRussian": "Rusisht",
+  "languageHebrew": "Hebraisht",
+  "languageArabic": "Arabisht",
+  "sessionRestPause": "Pauzë",
+  "sessionRestResume": "Vazhdo",
+  "sessionRestPaused": "Timer në pauzë",
+  "volumeLegend": "Pesha totale × përsëritje për çdo grup muskulor sipas ditës.",
+  "bestLiftLegend": "Pesha më e madhe e regjistruar për secilën ushtrim.",
+  "categoryVolumeTitle": "Vëllimi sipas grupit muskulor",
+  "exerciseProgressionTitle": "Progresioni i ushtrimit",
+  "exerciseProgressionLegend": "Pesha më e mirë për seancë për ushtrimin e zgjedhur.",
+  "noExerciseData": "Ende nuk ka të dhëna ushtrimesh.",
+  "sessionDeleteTitle": "Ta fshij seancën?",
+  "sessionDeleteMessage": "Kjo do të heqë seancën dhe të dhënat e saj.",
+  "deleteSession": "Fshi seancën",
+  "sessionDetailTitle": "Detajet e seancës",
+  "sessionDetailClose": "Mbyll",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

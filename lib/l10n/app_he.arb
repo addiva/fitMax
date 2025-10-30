@@ -1,0 +1,152 @@
+{
+  "@@locale": "he",
+  "appTitle": "FitMax",
+  "tabPrograms": "תוכניות",
+  "tabStatistics": "סטטיסטיקות",
+  "tabSession": "אימון",
+  "actionAdd": "הוסף",
+  "actionEdit": "ערוך",
+  "actionDelete": "מחק",
+  "actionSave": "שמור",
+  "actionCancel": "בטל",
+  "themeLabel": "ערכת נושא",
+  "themeSystem": "מערכת",
+  "themeLight": "בהיר",
+  "themeDark": "כהה",
+  "languageLabel": "שפה",
+  "languageSystem": "מערכת",
+  "languageItalian": "איטלקית",
+  "languageEnglish": "אנגלית",
+  "programsEmptyTitle": "אין תוכניות",
+  "programsEmptySubtitle": "ייבא תוכנית JSON או צור חדשה כדי להתחיל.",
+  "importFromFile": "ייבא מקובץ",
+  "importFromUrl": "ייבא מכתובת URL",
+  "programName": "שם התוכנית",
+  "programNote": "הערה",
+  "weeksCount": "שבועות",
+  "select": "בחר",
+  "sessionStart": "התחל אימון",
+  "sessionResume": "המשך",
+  "sessionEnd": "סיים אימון",
+  "sessionRest": "מנוחה",
+  "sessionRestStart": "התחל",
+  "sessionRestReset": "איפוס",
+  "statisticsEmpty": "הוסף אימון כדי לראות נתונים.",
+  "calendarTitle": "יומן אימונים",
+  "filtersTitle": "מסננים",
+  "weekCurrentToggle": "הצג רק את השבוע הנוכחי",
+  "suggestedSessionTitle": "אימון מוצע",
+  "suggestedSessionReason": "מבוסס על האימון האחרון שלך.",
+  "exportData": "ייצוא נתונים",
+  "importData": "ייבוא נתונים",
+  "deleteConfirmation": "האם אתה בטוח?",
+  "deleteProgramDescription": "פעולה זו תמחק את התוכנית ואת הנתונים המקומיים.",
+  "actionRename": "שנה שם",
+  "importFromClipboard": "ייבא מלוח הגזירים",
+  "exportProgram": "ייצא JSON",
+  "renameProgram": "שנה שם לתוכנית",
+  "programNameHint": "שם התוכנית",
+  "programDeleteConfirmTitle": "למחוק תוכנית?",
+  "programDeleteConfirmMessage": "זה ימחק את {name} ואת ההיסטוריה שלו.",
+  "weekLabel": "שבוע {number}",
+  "deloadWeekLabel": "שבוע הורדת עומס",
+  "setsShort": "סטים",
+  "repsShort": "חזרות",
+  "restShort": "מנוחה",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "עוצמה",
+  "notesShort": "הערות",
+  "videoShort": "וידאו",
+  "programImportedMessage": "{name} יובאה.",
+  "programDeletedMessage": "{name} נמחקה.",
+  "programRenamedMessage": "שונה השם ל-{name}.",
+  "programExportCopiedMessage": "JSON הועתק ללוח הגזירים.",
+  "programImportError": "לא ניתן היה לייבא את התוכנית.",
+  "programDeleteError": "לא ניתן היה למחוק את התוכנית.",
+  "programRenameError": "לא ניתן היה לשנות את שם התוכנית.",
+  "urlPromptLabel": "כתובת URL של התוכנית",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "אישור",
+  "close": "סגור",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "אימון אחרון: {date}",
+  "noSessionsYet": "עדיין אין אימונים רשומים.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "משקל",
+  "sessionFinishConfirmMessage": "לשמור ולסגור את האימון?",
+  "settings": "הגדרות",
+  "allProgramsOption": "כל התוכניות",
+  "volumeLabel": "נפח",
+  "bestLiftLabel": "משקלים גבוהים",
+  "copiedToClipboard": "הועתק ללוח הגזירים.",
+  "importedSessionsMessage": "יובאו {count} אימונים.",
+  "noSessionsForDay": "אין אימונים ביום זה.",
+  "fileSaveUnsupported": "שמירה בפלטפורמה זו אינה נתמכת. JSON הועתק.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "אימונים",
+  "averageLabel": "ממוצע",
+  "accentColorLabel": "צבע הדגשה",
+  "accentColorCustom": "צבע מותאם אישית",
+  "accentColorReset": "איפוס",
+  "languageGerman": "גרמנית",
+  "languageAlbanian": "אלבנית",
+  "languageFrench": "צרפתית",
+  "languageSpanish": "ספרדית",
+  "languageRussian": "רוסית",
+  "languageHebrew": "עברית",
+  "languageArabic": "ערבית",
+  "sessionRestPause": "השהה",
+  "sessionRestResume": "המשך",
+  "sessionRestPaused": "הטיימר הושהה",
+  "volumeLegend": "משקל כולל × חזרות לכל קבוצת שרירים לפי יום.",
+  "bestLiftLegend": "המשקל הגבוה ביותר שנרשם לכל תרגיל בתקופה שנבחרה.",
+  "categoryVolumeTitle": "נפח לפי קבוצת שרירים",
+  "exerciseProgressionTitle": "התקדמות תרגיל",
+  "exerciseProgressionLegend": "המשקל הטוב ביותר לכל אימון עבור התרגיל שנבחר.",
+  "noExerciseData": "עדיין אין נתוני תרגילים.",
+  "sessionDeleteTitle": "למחוק את האימון?",
+  "sessionDeleteMessage": "האימון והנתונים שלו יימחקו.",
+  "deleteSession": "מחק אימון",
+  "sessionDetailTitle": "פרטי האימון",
+  "sessionDetailClose": "סגור",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

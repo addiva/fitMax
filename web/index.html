@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FitMax JSON Builder</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --surface: #f5f7fb;
+        --card: #ffffff;
+        --border: rgba(0, 0, 0, 0.08);
+        --primary: #27ae60;
+        --danger: #c0392b;
+        --text: #1f2933;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+      }
+
+      header p {
+        margin: 8px 0 0;
+        color: #6b7280;
+        max-width: 720px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      input[type="number"] {
+        appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        margin: 0;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-weight: 600;
+        background: var(--primary);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: transform 0.15s ease;
+      }
+
+      button.secondary {
+        background: rgba(39, 174, 96, 0.12);
+        color: var(--primary);
+      }
+
+      button.danger {
+        background: rgba(231, 76, 60, 0.15);
+        color: var(--danger);
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-1px);
+      }
+
+      .muted {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
+      .hint {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.78rem;
+        color: #6b7280;
+      }
+
+      .exercise-card {
+        margin-top: 20px;
+        border: 1px dashed rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .exercise-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .exercise-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .week-row {
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+        background: #fdfefe;
+      }
+
+      .week-row-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .week-title {
+        font-weight: 600;
+        color: #25603f;
+      }
+
+      .week-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+
+      .week-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .week-field textarea {
+        min-height: 88px;
+      }
+
+      .actions,
+      .output-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .output textarea {
+        font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+        min-height: 260px;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px 14px 60px;
+        }
+
+        .card {
+          padding: 18px;
+        }
+
+        button {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>FitMax JSON Builder</h1>
+        <p>
+          Genera file JSON compatibili con l'app FitMax. Imposta i dati del
+          programma, aggiungi esercizi con settimane personalizzabili e scarica
+          il risultato pronto per l'import.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Informazioni programma</h2>
+        <div class="grid">
+          <div>
+            <label for="programName">Nome del programma</label>
+            <input id="programName" placeholder="Allenamento A" required />
+            <small class="hint">Questo valore compare nell'app e nei riepiloghi.</small>
+          </div>
+          <div>
+            <label for="programId">ID (slug opzionale)</label>
+            <input id="programId" placeholder="a-upper-strength" />
+            <small class="hint">Se vuoto verrà generato automaticamente.</small>
+          </div>
+          <div>
+            <label for="totalWeeks">Settimane totali del programma</label>
+            <input id="totalWeeks" type="number" min="1" value="4" inputmode="numeric" />
+            <small class="hint">Usato come riferimento: verrà adattato al massimo delle settimane definite negli esercizi.</small>
+          </div>
+          <div>
+            <label for="deloadWeek">Settimana di scarico</label>
+            <input id="deloadWeek" type="number" min="1" placeholder="4" inputmode="numeric" />
+            <small class="hint">Lascia vuoto se non c'è una settimana di scarico.</small>
+          </div>
+        </div>
+        <div class="grid" style="margin-top: 16px">
+          <div style="grid-column: 1 / -1">
+            <label for="programNote">Note generali</label>
+            <textarea id="programNote" placeholder="Focus tecnico, mantieni buffer 3"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="actions" style="margin-bottom: 12px">
+          <button id="addExerciseBtn" type="button">+ Aggiungi esercizio</button>
+        </div>
+        <p class="muted" style="margin: 0 0 18px">
+          Ogni esercizio può avere un numero di settimane diverso: usa il campo
+          dedicato o i pulsanti per aggiungerne/rimuoverne in autonomia.
+        </p>
+        <div id="exercises"></div>
+      </section>
+
+      <section class="card output">
+        <div class="actions" style="margin-bottom: 16px">
+          <button id="generateBtn" type="button">Genera JSON</button>
+          <button id="copyBtn" type="button" class="secondary">Copia</button>
+          <button id="downloadBtn" type="button" class="secondary">Scarica</button>
+          <button id="clearBtn" type="button" class="danger">Reset</button>
+        </div>
+        <textarea id="jsonOutput" placeholder="Il JSON generato apparirà qui" readonly></textarea>
+      </section>
+    </div>
+
+    <template id="exerciseTemplate">
+      <div class="exercise-card">
+        <div class="exercise-header">
+          <div>
+            <h3>Nuovo esercizio</h3>
+            <p class="muted">Compila i dettagli e definisci le settimane.</p>
+          </div>
+          <div class="exercise-actions">
+            <button type="button" class="secondary add-week">+ Settimana</button>
+            <button type="button" class="secondary remove-week">- Settimana</button>
+            <button type="button" class="danger remove-exercise">Rimuovi</button>
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            <label>Nome esercizio</label>
+            <input data-field="name" placeholder="Panca piana" required />
+          </div>
+          <div>
+            <label>Categoria</label>
+            <input data-field="category" placeholder="Spinte / Petto" />
+            <small class="hint">Usata per raggruppare nelle statistiche.</small>
+          </div>
+          <div>
+            <label>Video di riferimento</label>
+            <input data-field="video" type="url" placeholder="https://" />
+          </div>
+          <div>
+            <label>Settimane per questo esercizio</label>
+            <input data-field="weekCount" type="number" min="1" value="4" inputmode="numeric" />
+            <small class="hint">Può differire dal totale programma.</small>
+          </div>
+        </div>
+        <div class="grid" style="margin-top: 12px">
+          <div style="grid-column: 1 / -1">
+            <label>Note esercizio</label>
+            <textarea data-field="note" placeholder="Esegui pausa 1s al petto"></textarea>
+          </div>
+        </div>
+        <div class="weeks-container" style="margin-top: 18px"></div>
+      </div>
+    </template>
+
+    <script>
+      const totalWeeksInput = document.getElementById('totalWeeks');
+      const exercisesContainer = document.getElementById('exercises');
+      const template = document.getElementById('exerciseTemplate');
+      const jsonOutput = document.getElementById('jsonOutput');
+
+      const addExerciseBtn = document.getElementById('addExerciseBtn');
+      const generateBtn = document.getElementById('generateBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const clearBtn = document.getElementById('clearBtn');
+
+      let exerciseCounter = 0;
+
+      const numericWeekFields = new Set([
+        'sets',
+        'rest_sec',
+        'buf',
+        'inherit',
+        'set_delta',
+        'rest_delta',
+        'buf_delta'
+      ]);
+
+      const weekFields = [
+        {
+          key: 'sets',
+          label: 'Serie',
+          type: 'number',
+          min: 0,
+          placeholder: '3',
+          hint: 'Numero di serie previste per la settimana.'
+        },
+        {
+          key: 'reps',
+          label: 'Ripetizioni',
+          type: 'text',
+          placeholder: '8-10',
+          hint: 'Puoi inserire range o note (es. AMRAP).'
+        },
+        {
+          key: 'rest_sec',
+          label: 'Recupero (sec)',
+          type: 'number',
+          min: 0,
+          placeholder: '90',
+          hint: 'Tempo di recupero espresso in secondi.'
+        },
+        {
+          key: 'tut',
+          label: 'TUT',
+          type: 'text',
+          placeholder: '3-1-0-1',
+          hint: 'Tempo sotto tensione (facoltativo).'
+        },
+        {
+          key: 'buf',
+          label: 'BUF',
+          type: 'number',
+          placeholder: '2',
+          hint: 'Buffer sul carico (facoltativo).'
+        },
+        {
+          key: 'intensity',
+          label: 'Intensità',
+          type: 'text',
+          placeholder: 'RPE 8 / 80% 1RM'
+        },
+        {
+          key: 'note',
+          label: 'Note',
+          component: 'textarea',
+          placeholder: 'Indicazioni specifiche per la settimana.'
+        },
+        {
+          key: 'inherit',
+          label: 'Eredita da settimana',
+          type: 'number',
+          min: 1,
+          placeholder: '1',
+          hint: 'Indica la settimana da cui copiare i dati.'
+        },
+        {
+          key: 'set_delta',
+          label: 'Δ Serie',
+          type: 'number',
+          placeholder: '1',
+          hint: 'Differenza di serie rispetto alla settimana ereditata.'
+        },
+        {
+          key: 'rest_delta',
+          label: 'Δ Recupero',
+          type: 'number',
+          placeholder: '-15',
+          hint: 'Differenza di recupero (in secondi).'
+        },
+        {
+          key: 'buf_delta',
+          label: 'Δ BUF',
+          type: 'number',
+          placeholder: '-1'
+        },
+        {
+          key: 'video_url',
+          label: 'Video specifico',
+          type: 'url',
+          placeholder: 'https://video.example'
+        }
+      ];
+
+      function getTotalWeeks() {
+        const value = parseInt(totalWeeksInput.value, 10);
+        return Number.isFinite(value) && value > 0 ? value : 1;
+      }
+
+      function updateWeekButtons(card) {
+        const removeWeekBtn = card.querySelector('.remove-week');
+        if (!removeWeekBtn) return;
+        removeWeekBtn.disabled = (Number(card.dataset.weekCount) || 1) <= 1;
+      }
+
+      function renderWeekRows(card) {
+        const weeksContainer = card.querySelector('.weeks-container');
+        const stored = new Map();
+        weeksContainer.querySelectorAll('.week-row').forEach((row) => {
+          const week = Number(row.dataset.week);
+          const values = {};
+          row.querySelectorAll('[data-week-field]').forEach((input) => {
+            values[input.dataset.weekField] = input.value;
+          });
+          stored.set(week, values);
+        });
+
+        weeksContainer.innerHTML = '';
+        const totalWeeks = Number(card.dataset.weekCount) || 1;
+
+        for (let week = 1; week <= totalWeeks; week += 1) {
+          const row = document.createElement('div');
+          row.className = 'week-row';
+          row.dataset.week = week;
+
+          const header = document.createElement('div');
+          header.className = 'week-row-header';
+          const title = document.createElement('span');
+          title.className = 'week-title';
+          title.textContent = `Settimana ${week}`;
+          header.appendChild(title);
+          row.appendChild(header);
+
+          const grid = document.createElement('div');
+          grid.className = 'week-grid';
+
+          const previous = stored.get(week) || {};
+          weekFields.forEach((field) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'week-field';
+
+            const label = document.createElement('label');
+            label.textContent = field.label;
+            wrapper.appendChild(label);
+
+            let input;
+            if (field.component === 'textarea') {
+              input = document.createElement('textarea');
+              input.rows = 3;
+            } else {
+              input = document.createElement('input');
+              input.type = field.type;
+              if (field.type === 'number') {
+                input.inputMode = 'decimal';
+              }
+            }
+            input.dataset.weekField = field.key;
+            if (field.placeholder) input.placeholder = field.placeholder;
+            if (field.min !== undefined) input.min = field.min;
+            input.value = previous[field.key] ?? '';
+            wrapper.appendChild(input);
+
+            if (field.hint) {
+              const hint = document.createElement('small');
+              hint.className = 'hint';
+              hint.textContent = field.hint;
+              wrapper.appendChild(hint);
+            }
+
+            grid.appendChild(wrapper);
+          });
+
+          row.appendChild(grid);
+          weeksContainer.appendChild(row);
+        }
+        updateWeekButtons(card);
+      }
+
+      function setWeekCount(card, value, { markCustom = true } = {}) {
+        const sanitized = Math.max(1, parseInt(value, 10) || 1);
+        card.dataset.weekCount = sanitized;
+        const input = card.querySelector('[data-field="weekCount"]');
+        if (input) {
+          input.value = sanitized;
+        }
+        renderWeekRows(card);
+        if (markCustom) {
+          card.dataset.customWeeks = 'true';
+        }
+      }
+
+      function addExercise() {
+        exerciseCounter += 1;
+        const fragment = template.content.cloneNode(true);
+        const card = fragment.querySelector('.exercise-card');
+        card.dataset.exerciseId = `exercise-${exerciseCounter}`;
+        card.dataset.customWeeks = 'false';
+        card.querySelector('h3').textContent = `Esercizio #${exerciseCounter}`;
+
+        const removeBtn = card.querySelector('.remove-exercise');
+        removeBtn.addEventListener('click', () => card.remove());
+
+        const addWeekBtn = card.querySelector('.add-week');
+        const removeWeekBtn = card.querySelector('.remove-week');
+        const weekCountInput = card.querySelector('[data-field="weekCount"]');
+
+        addWeekBtn.addEventListener('click', () => {
+          const current = Number(card.dataset.weekCount) || 1;
+          setWeekCount(card, current + 1, { markCustom: true });
+        });
+
+        removeWeekBtn.addEventListener('click', () => {
+          const current = Number(card.dataset.weekCount) || 1;
+          if (current > 1) {
+            setWeekCount(card, current - 1, { markCustom: true });
+          }
+        });
+
+        weekCountInput.addEventListener('change', () => {
+          setWeekCount(card, weekCountInput.value, { markCustom: true });
+        });
+
+        weekCountInput.addEventListener('input', () => {
+          card.dataset.customWeeks = 'true';
+        });
+
+        exercisesContainer.appendChild(card);
+        setWeekCount(card, getTotalWeeks(), { markCustom: false });
+      }
+
+      function syncAllWeekRows() {
+        exercisesContainer.querySelectorAll('.exercise-card').forEach((card) => {
+          if (card.dataset.customWeeks === 'true') {
+            renderWeekRows(card);
+          } else {
+            setWeekCount(card, getTotalWeeks(), { markCustom: false });
+          }
+        });
+      }
+
+      function collectExercise(card) {
+        const fieldValue = (selector) => card.querySelector(selector)?.value.trim() ?? '';
+
+        const progression = [];
+        card.querySelectorAll('.week-row').forEach((row) => {
+          const payload = {};
+          row.querySelectorAll('[data-week-field]').forEach((input) => {
+            const key = input.dataset.weekField;
+            const value = input.value.trim();
+            if (!value) return;
+            if (numericWeekFields.has(key)) {
+              payload[key] = Number(value);
+            } else {
+              payload[key] = value;
+            }
+          });
+          progression.push(payload);
+        });
+
+        return {
+          name: fieldValue('[data-field="name"]'),
+          category: fieldValue('[data-field="category"]'),
+          note: fieldValue('[data-field="note"]'),
+          video: fieldValue('[data-field="video"]'),
+          weekCount: Number(card.dataset.weekCount) || progression.length || 1,
+          progression
+        };
+      }
+
+      function generateJson() {
+        const name = document.getElementById('programName').value.trim();
+        const id = document.getElementById('programId').value.trim();
+        const note = document.getElementById('programNote').value.trim();
+        const deload = document.getElementById('deloadWeek').value.trim();
+
+        if (!name) {
+          alert('Inserisci il nome del programma.');
+          return;
+        }
+
+        const exercisesData = [];
+        exercisesContainer.querySelectorAll('.exercise-card').forEach((card) => {
+          const data = collectExercise(card);
+          if (!data.name) {
+            return;
+          }
+          exercisesData.push(data);
+        });
+
+        if (exercisesData.length === 0) {
+          alert('Aggiungi almeno un esercizio valido.');
+          return;
+        }
+
+        const baseWeeks = getTotalWeeks();
+        const maxWeeks = exercisesData.reduce(
+          (acc, cur) => Math.max(acc, cur.weekCount, cur.progression.length),
+          1
+        );
+        const weeksConfig = { total: Math.max(baseWeeks, maxWeeks) };
+        if (deload) {
+          weeksConfig.deload = Number(deload);
+        }
+
+        const exercises = exercisesData.map((data) => {
+          const exercise = {
+            name: data.name,
+            progression: data.progression
+          };
+          if (data.category) exercise.category = data.category;
+          if (data.note) exercise.note = data.note;
+          if (data.video) exercise.video_url = data.video;
+          return exercise;
+        });
+
+        const program = {
+          name,
+          weeks: weeksConfig,
+          exercises
+        };
+        if (id) program.id = id;
+        if (note) program.note = note;
+
+        jsonOutput.value = JSON.stringify(program, null, 2);
+        jsonOutput.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      async function copyJson() {
+        const value = jsonOutput.value.trim();
+        if (!value) {
+          alert('Genera prima il JSON.');
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(value);
+          alert('JSON copiato negli appunti.');
+        } catch (err) {
+          alert('Impossibile copiare automaticamente. Copia manualmente il testo.');
+        }
+      }
+
+      function downloadJson() {
+        const value = jsonOutput.value.trim();
+        if (!value) {
+          alert('Genera prima il JSON.');
+          return;
+        }
+        const blob = new Blob([value], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        const programName = document
+          .getElementById('programName')
+          .value.trim()
+          .replace(/[^a-z0-9]+/gi, '-');
+        anchor.href = url;
+        anchor.download = `${programName || 'fitmax-program'}.json`;
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+        URL.revokeObjectURL(url);
+      }
+
+      function resetBuilder() {
+        document.getElementById('programName').value = '';
+        document.getElementById('programId').value = '';
+        document.getElementById('programNote').value = '';
+        document.getElementById('deloadWeek').value = '';
+        totalWeeksInput.value = 4;
+        exercisesContainer.innerHTML = '';
+        jsonOutput.value = '';
+        exerciseCounter = 0;
+        addExercise();
+      }
+
+      addExerciseBtn.addEventListener('click', addExercise);
+      totalWeeksInput.addEventListener('change', () => {
+        const clamped = Math.max(1, getTotalWeeks());
+        totalWeeksInput.value = clamped;
+        syncAllWeekRows();
+      });
+
+      generateBtn.addEventListener('click', generateJson);
+      copyBtn.addEventListener('click', copyJson);
+      downloadBtn.addEventListener('click', downloadJson);
+      clearBtn.addEventListener('click', resetBuilder);
+
+      addExercise();
+    </script>
+  </body>
+</html>

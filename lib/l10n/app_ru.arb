@@ -1,0 +1,152 @@
+{
+  "@@locale": "ru",
+  "appTitle": "FitMax",
+  "tabPrograms": "Программы",
+  "tabStatistics": "Статистика",
+  "tabSession": "Сессия",
+  "actionAdd": "Добавить",
+  "actionEdit": "Редактировать",
+  "actionDelete": "Удалить",
+  "actionSave": "Сохранить",
+  "actionCancel": "Отменить",
+  "themeLabel": "Тема",
+  "themeSystem": "Система",
+  "themeLight": "Светлая",
+  "themeDark": "Тёмная",
+  "languageLabel": "Язык",
+  "languageSystem": "Система",
+  "languageItalian": "Итальянский",
+  "languageEnglish": "Английский",
+  "programsEmptyTitle": "Пока нет программ",
+  "programsEmptySubtitle": "Импортируйте план в формате JSON или создайте новый, чтобы начать.",
+  "importFromFile": "Импорт из файла",
+  "importFromUrl": "Импорт по URL",
+  "programName": "Название программы",
+  "programNote": "Заметка",
+  "weeksCount": "Недели",
+  "select": "Выбрать",
+  "sessionStart": "Начать сессию",
+  "sessionResume": "Продолжить",
+  "sessionEnd": "Завершить сессию",
+  "sessionRest": "Отдых",
+  "sessionRestStart": "Начать",
+  "sessionRestReset": "Сброс",
+  "statisticsEmpty": "Добавьте сессию, чтобы увидеть статистику.",
+  "calendarTitle": "Календарь тренировок",
+  "filtersTitle": "Фильтры",
+  "weekCurrentToggle": "Показывать только текущую неделю",
+  "suggestedSessionTitle": "Рекомендуемая сессия",
+  "suggestedSessionReason": "Основано на вашей последней тренировке.",
+  "exportData": "Экспорт данных",
+  "importData": "Импорт данных",
+  "deleteConfirmation": "Вы уверены?",
+  "deleteProgramDescription": "Это удалит программу и локальные данные.",
+  "actionRename": "Переименовать",
+  "importFromClipboard": "Импорт из буфера обмена",
+  "exportProgram": "Экспорт JSON",
+  "renameProgram": "Переименовать программу",
+  "programNameHint": "Название программы",
+  "programDeleteConfirmTitle": "Удалить программу?",
+  "programDeleteConfirmMessage": "Это удалит {name} и всю историю.",
+  "weekLabel": "Неделя {number}",
+  "deloadWeekLabel": "Разгрузка",
+  "setsShort": "Подх.",
+  "repsShort": "Повт.",
+  "restShort": "Отдых",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "Инт.",
+  "notesShort": "Заметки",
+  "videoShort": "Видео",
+  "programImportedMessage": "{name} импортирована.",
+  "programDeletedMessage": "{name} удалена.",
+  "programRenamedMessage": "Переименовано в {name}.",
+  "programExportCopiedMessage": "JSON скопирован в буфер обмена.",
+  "programImportError": "Не удалось импортировать программу.",
+  "programDeleteError": "Не удалось удалить программу.",
+  "programRenameError": "Не удалось переименовать программу.",
+  "urlPromptLabel": "URL программы",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "Подтвердить",
+  "close": "Закрыть",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "Последняя сессия: {date}",
+  "noSessionsYet": "Сессии пока не записаны.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "Вес",
+  "sessionFinishConfirmMessage": "Сохранить и закрыть эту сессию?",
+  "settings": "Настройки",
+  "allProgramsOption": "Все программы",
+  "volumeLabel": "Объём",
+  "bestLiftLabel": "Лучшие веса",
+  "copiedToClipboard": "Скопировано в буфер обмена.",
+  "importedSessionsMessage": "Импортировано сессий: {count}.",
+  "noSessionsForDay": "Нет сессий на этот день.",
+  "fileSaveUnsupported": "Сохранение на этой платформе недоступно. JSON скопирован.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "Сессии",
+  "averageLabel": "Среднее",
+  "accentColorLabel": "Акцентный цвет",
+  "accentColorCustom": "Пользовательский цвет",
+  "accentColorReset": "Сброс",
+  "languageGerman": "Немецкий",
+  "languageAlbanian": "Албанский",
+  "languageFrench": "Французский",
+  "languageSpanish": "Испанский",
+  "languageRussian": "Русский",
+  "languageHebrew": "Иврит",
+  "languageArabic": "Арабский",
+  "sessionRestPause": "Пауза",
+  "sessionRestResume": "Продолжить",
+  "sessionRestPaused": "Таймер на паузе",
+  "volumeLegend": "Общий вес × повторения для каждой мышечной группы по дням.",
+  "bestLiftLegend": "Наибольший вес по упражнению за выбранный период.",
+  "categoryVolumeTitle": "Объём по мышечным группам",
+  "exerciseProgressionTitle": "Прогресс упражнения",
+  "exerciseProgressionLegend": "Лучший вес за сессию для выбранного упражнения.",
+  "noExerciseData": "Пока нет данных упражнений.",
+  "sessionDeleteTitle": "Удалить сессию?",
+  "sessionDeleteMessage": "Сессия и её записи будут удалены.",
+  "deleteSession": "Удалить сессию",
+  "sessionDetailTitle": "Подробности сессии",
+  "sessionDetailClose": "Закрыть",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "D",
+  "name": "Allenamento D",
+  "note": "Spalle + Lower",
+  "weeks": { "total": 8, "deload": 4 },
+  "exercises": [
+    { "name": "Alzata laterale seduto", "category": "spalle", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]},
+    { "name": "Alzate laterali di lato panca piana", "category": "spalle", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 2, "reps": "15", "rest_sec": 120, "tut": "3-1-0-0", "buf": 0 }
+      ]},
+    { "name": "Leg curl", "category": "posteriori", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]},
+    { "name": "Leg extension", "category": "quadricipiti", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 0 }
+      ]},
+    { "name": "RDL", "category": "posteriori", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "9+", "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "8",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "9",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "8",  "rest_sec": 180, "tut": "3-1-0-0", "buf": 0 }
+      ]},
+    { "name": "Affondi indietro multipower", "category": "quadricipiti", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "10", "rest_sec": 150, "tut": "3-0-0-0", "buf": 0 }
+      ]},
+    { "name": "Leg press", "category": "gambe", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 150, "tut": "3-2-0-0", "buf": 0 }
+      ]},
+    { "name": "Crunch panca declinata al massimo", "category": "core", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "MAX", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]}
+  ]
+}

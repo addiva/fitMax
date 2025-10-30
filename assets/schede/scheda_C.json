@@ -1,0 +1,96 @@
+{
+  "id": "C",
+  "name": "Allenamento C",
+  "note": "Spalle/Petto + Dorso",
+  "weeks": { "total": 8, "deload": 4 },
+  "exercises": [
+    { "name": "Lento multipower", "category": "spalle", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9+", "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",  "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "10", "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9",  "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",  "rest_sec": 180, "tut": "0-0-0-0", "buf": 3 }
+      ]},
+    { "name": "Lat machine normale", "category": "pull", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 2 }
+      ]},
+    { "name": "Lat machine presa mag piccola", "category": "pull", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 },
+        { "sets": 2, "reps": "8", "rest_sec": 150, "tut": "4-1-0-0", "buf": 2 }
+      ]},
+    { "name": "Chest press carico libero", "category": "petto", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 },
+        { "sets": 3, "reps": "12", "rest_sec": 150, "tut": "3-1-0-0", "buf": 0 }
+      ]},
+    { "name": "JM press multipower", "category": "tricipiti", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9+", "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",  "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "10", "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "9",  "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 },
+        { "sets": 3, "reps": "8",  "rest_sec": 150, "tut": "0-0-0-0", "buf": 3 }
+      ]},
+    { "name": "French press cavo basso tronco in appoggio", "category": "tricipiti", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]},
+    { "name": "Cavo singolo pulley", "category": "schiena", "note": "",
+      "progression": [
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 2, "reps": "12", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]},
+    { "name": "Curl martello panca 65°", "category": "bicipiti", "note": "",
+      "progression": [
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "inherit": 1, "set_delta": -1 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 },
+        { "sets": 3, "reps": "15", "rest_sec": 120, "tut": "0-0-0-0", "buf": 0 }
+      ]}
+  ]
+}

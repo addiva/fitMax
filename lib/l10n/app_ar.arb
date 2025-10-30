@@ -1,0 +1,152 @@
+{
+  "@@locale": "ar",
+  "appTitle": "FitMax",
+  "tabPrograms": "البرامج",
+  "tabStatistics": "الإحصائيات",
+  "tabSession": "الجلسة",
+  "actionAdd": "إضافة",
+  "actionEdit": "تعديل",
+  "actionDelete": "حذف",
+  "actionSave": "حفظ",
+  "actionCancel": "إلغاء",
+  "themeLabel": "السمة",
+  "themeSystem": "النظام",
+  "themeLight": "فاتحة",
+  "themeDark": "داكنة",
+  "languageLabel": "اللغة",
+  "languageSystem": "النظام",
+  "languageItalian": "الإيطالية",
+  "languageEnglish": "الإنجليزية",
+  "programsEmptyTitle": "لا توجد برامج",
+  "programsEmptySubtitle": "قم باستيراد خطة بصيغة JSON أو أنشئ خطة جديدة للبدء.",
+  "importFromFile": "استيراد من ملف",
+  "importFromUrl": "استيراد من رابط",
+  "programName": "اسم البرنامج",
+  "programNote": "ملاحظة",
+  "weeksCount": "الأسابيع",
+  "select": "اختيار",
+  "sessionStart": "بدء الجلسة",
+  "sessionResume": "استئناف",
+  "sessionEnd": "إنهاء الجلسة",
+  "sessionRest": "استراحة",
+  "sessionRestStart": "بدء",
+  "sessionRestReset": "إعادة تعيين",
+  "statisticsEmpty": "أضف جلسة لترى الإحصائيات.",
+  "calendarTitle": "تقويم التدريب",
+  "filtersTitle": "عوامل التصفية",
+  "weekCurrentToggle": "عرض الأسبوع الحالي فقط",
+  "suggestedSessionTitle": "جلسة مقترحة",
+  "suggestedSessionReason": "استنادًا إلى آخر تمرين لك.",
+  "exportData": "تصدير البيانات",
+  "importData": "استيراد البيانات",
+  "deleteConfirmation": "هل أنت متأكد؟",
+  "deleteProgramDescription": "سيتم حذف البرنامج والبيانات المحلية.",
+  "actionRename": "إعادة تسمية",
+  "importFromClipboard": "استيراد من الحافظة",
+  "exportProgram": "تصدير JSON",
+  "renameProgram": "إعادة تسمية البرنامج",
+  "programNameHint": "اسم البرنامج",
+  "programDeleteConfirmTitle": "حذف البرنامج؟",
+  "programDeleteConfirmMessage": "سيتم حذف {name} وسجله.",
+  "weekLabel": "الأسبوع {number}",
+  "deloadWeekLabel": "أسبوع تخفيف الحمل",
+  "setsShort": "مجاميع",
+  "repsShort": "تكرارات",
+  "restShort": "راحة",
+  "bufShort": "BUF",
+  "tutShort": "TUT",
+  "intensityShort": "الجهد",
+  "notesShort": "ملاحظات",
+  "videoShort": "فيديو",
+  "programImportedMessage": "تم استيراد {name}.",
+  "programDeletedMessage": "تم حذف {name}.",
+  "programRenamedMessage": "تمت إعادة تسميته إلى {name}.",
+  "programExportCopiedMessage": "تم نسخ JSON إلى الحافظة.",
+  "programImportError": "تعذّر استيراد البرنامج.",
+  "programDeleteError": "تعذّر حذف البرنامج.",
+  "programRenameError": "تعذّر إعادة تسمية البرنامج.",
+  "urlPromptLabel": "رابط البرنامج",
+  "urlPromptHint": "https://example.com/program.json",
+  "confirm": "تأكيد",
+  "close": "إغلاق",
+  "@programDeleteConfirmMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programImportedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programDeletedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@programRenamedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "@weekLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "lastSessionLabel": "آخر جلسة: {date}",
+  "noSessionsYet": "لا توجد جلسات مسجلة بعد.",
+  "@lastSessionLabel": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "weightShort": "الوزن",
+  "sessionFinishConfirmMessage": "هل تريد حفظ هذه الجلسة وإغلاقها؟",
+  "settings": "الإعدادات",
+  "allProgramsOption": "جميع البرامج",
+  "volumeLabel": "الحجم",
+  "bestLiftLabel": "أثقل الأوزان",
+  "copiedToClipboard": "تم النسخ إلى الحافظة.",
+  "importedSessionsMessage": "تم استيراد {count} جلسات.",
+  "noSessionsForDay": "لا توجد جلسات لهذا اليوم.",
+  "fileSaveUnsupported": "الحفظ غير مدعوم على هذا النظام. تم نسخ JSON.",
+  "@importedSessionsMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalSessionsLabel": "جلسات",
+  "averageLabel": "المتوسط",
+  "accentColorLabel": "لون مميز",
+  "accentColorCustom": "لون مخصص",
+  "accentColorReset": "إعادة تعيين",
+  "languageGerman": "الألمانية",
+  "languageAlbanian": "الألبانية",
+  "languageFrench": "الفرنسية",
+  "languageSpanish": "الإسبانية",
+  "languageRussian": "الروسية",
+  "languageHebrew": "العبرية",
+  "languageArabic": "العربية",
+  "sessionRestPause": "إيقاف مؤقت",
+  "sessionRestResume": "استئناف",
+  "sessionRestPaused": "المؤقت متوقف",
+  "volumeLegend": "الوزن الكلي × التكرارات لكل مجموعة عضلية حسب اليوم.",
+  "bestLiftLegend": "أعلى وزن مسجل لكل تمرين خلال الفترة المحددة.",
+  "categoryVolumeTitle": "الحجم حسب مجموعة العضلات",
+  "exerciseProgressionTitle": "تقدم التمرين",
+  "exerciseProgressionLegend": "أفضل وزن لكل جلسة للتمرين المحدد.",
+  "noExerciseData": "لا توجد بيانات تمارين بعد.",
+  "sessionDeleteTitle": "حذف الجلسة؟",
+  "sessionDeleteMessage": "سيتم حذف الجلسة وسجلاتها.",
+  "deleteSession": "حذف الجلسة",
+  "sessionDetailTitle": "تفاصيل الجلسة",
+  "sessionDetailClose": "إغلاق",
+  "@exerciseProgressionLegend": {
+    "placeholders": {}
+  }
+}
